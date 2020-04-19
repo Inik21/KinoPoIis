@@ -22,5 +22,9 @@
   <ItemGroup>
     <ProjectReference Include="..\KinoPolis.Data.Common\KinoPolis.Data.Common.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Enumerations\" />
+  </ItemGroup>
   
 </Project>
