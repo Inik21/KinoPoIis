@@ -14,7 +14,7 @@ namespace KinoPolis.Data.Models
 
         public string Name { get; set; }
 
-        public string Adress { get; set; }
+        public string Address { get; set; }
 
         public virtual ICollection<Hall> Halls { get; set; }
 

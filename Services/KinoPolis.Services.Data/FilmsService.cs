@@ -1,6 +1,7 @@
 ﻿using KinoPolis.Data.Common.Repositories;
 using KinoPolis.Data.Models;
 using KinoPolis.Services.Mapping;
+using KinoPolis.Web.ViewModels.Films;
 using KinoPolis.Web.ViewModels.Home;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,12 @@ namespace KinoPolis.Services.Data
             return query;
         }
 
-        public Film GetFilmByName(string name)
+        public ByNameViewModel GetFilmByName(string name)
         {
-            var film = this.filmsRepository.All().FirstOrDefault(x => x.Name == name);
+            var realName = name.Replace('-', ' ');
+            var film = this.filmsRepository.All().To<ByNameViewModel>().FirstOrDefault(x => x.Name == realName);
             return film;
         }
+
     }
 }

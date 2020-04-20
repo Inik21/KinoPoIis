@@ -9,12 +9,13 @@ namespace KinoPolis.Web.Controllers
 {
     public class FilmsController : BaseController
     {
-        private readonly FilmsService filmsService;
+        private readonly IFilmsService filmsService;
 
-        public FilmsController(FilmsService filmsService)
+        public FilmsController(IFilmsService filmsService)
         {
             this.filmsService = filmsService;
         }
+
         public IActionResult ByName(string name)
         {
             var film = this.filmsService.GetFilmByName(name);
