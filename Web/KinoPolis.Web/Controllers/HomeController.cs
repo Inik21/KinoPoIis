@@ -2,15 +2,26 @@
 {
     using System.Diagnostics;
 
+    using KinoPolis.Services.Data;
     using KinoPolis.Web.ViewModels;
-
+    using KinoPolis.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
+        private readonly IFilmsService filmsService;
+
+        public HomeController(IFilmsService filmsService)
+        {
+            this.filmsService = filmsService;
+        }
+
         public IActionResult Index()
         {
-            return this.View();
+            var viewModel = new IndexViewModel();
+            var films = this.filmsService.GetAllFilms<IndexFilmViewModel>();
+            viewModel.Films = films;
+            return this.View(viewModel);
         }
 
         public IActionResult Privacy()

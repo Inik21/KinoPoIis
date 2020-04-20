@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\KinoPolis.Data.Common\KinoPolis.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\KinoPolis.Data.Models\KinoPolis.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\KinoPolis.Web.ViewModels\KinoPolis.Web.ViewModels.csproj" />
     <ProjectReference Include="..\KinoPolis.Services.Mapping\KinoPolis.Services.Mapping.csproj" />
   </ItemGroup>
 

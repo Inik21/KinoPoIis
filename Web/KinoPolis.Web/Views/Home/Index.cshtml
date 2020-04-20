@@ -1,9 +1,34 @@
 ﻿@using KinoPolis.Common
+@model KinoPolis.Web.ViewModels.Home.IndexViewModel
 @{
     this.ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    
+        <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
+        <ul class="list-unstyled m-top">
+            @foreach (var film in Model.Films)
+            {
+                <li class="media border border-dark mb-3">
+
+                    <img src="@film.ImgUrl" width = "150" class="mr-3" alt="">
+                    <div class="media-body">
+                        <h5 class="mt-0">@film.Name</h5>
+                        <p>@film.Category</p>
+                        @if (film.Description.Length > 200)
+                        {
+                            <span>@film.Description.Substring(0, 200)...</span>
+                        }
+                        else
+                        {
+                            @film.Description
+                        }
+                    <p></p>
+                        <a href="@film.URL" class="btn btn-dark m-2 float-right ">See More</a>
+
+                    </div>
+                </li>
+            }
+        </ul>
+
+
