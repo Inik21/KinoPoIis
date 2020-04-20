@@ -13,6 +13,6 @@ namespace KinoPolis.Web.ViewModels.Home
 
         public string ImgUrl { get; set; }
 
-        public string URL => $"/Film/{this.Name.Replace(' ', '-')}";
+        public string URL => $"/Films/{this.Name.Replace(' ', '-')}";
     }
 }

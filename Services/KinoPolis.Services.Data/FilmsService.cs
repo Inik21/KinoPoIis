@@ -22,5 +22,11 @@ namespace KinoPolis.Services.Data
             var query = this.filmsRepository.All().To<T>().ToList();
             return query;
         }
+
+        public Film GetFilmByName(string name)
+        {
+            var film = this.filmsRepository.All().FirstOrDefault(x => x.Name == name);
+            return film;
+        }
     }
 }
