@@ -15,9 +15,9 @@
             List<int> list = new List<int>();
             var halls = new List<(int NumberofHall, int Rows, int SeatsPerRow, int CinemaId)>()
             {
-                (1, 10, 10, 1),
-                (1, 20, 10, 2),
-                (1, 15, 20, 3),
+                (1, 3, 4, 1),
+                (1, 3, 3, 2),
+                (1, 5, 3, 3),
             };
             foreach (var hall in halls)
             {
