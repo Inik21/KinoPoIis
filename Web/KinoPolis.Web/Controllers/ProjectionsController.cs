@@ -1,5 +1,6 @@
 ﻿namespace KinoPolis.Web.Controllers
 {
+    using KinoPolis.Services.Data;
     using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;
@@ -8,10 +9,17 @@
 
     public class ProjectionsController : BaseController
     {
+        private readonly IProjectionsService projectionsService;
+
+        public ProjectionsController(IProjectionsService projectionsService)
+        {
+            this.projectionsService = projectionsService;
+        }
+
         public IActionResult ById(int id)
         {
-
-            return this.View();
+            var viewModel = this.projectionsService.GetProjectionById(id);
+            return this.View(viewModel);
         }
     }
 }

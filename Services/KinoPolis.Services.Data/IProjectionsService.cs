@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using KinoPolis.Web.ViewModels.Projections;
+using System.Collections.Generic;
 using System.Text;
 
 namespace KinoPolis.Services.Data
 {
     public interface IProjectionsService
     {
-        public T GetProjectionById<T>(int id);
+        public ByIdViewModel GetProjectionById(int id);
     }
 }

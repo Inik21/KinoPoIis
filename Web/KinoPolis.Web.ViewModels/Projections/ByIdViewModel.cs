@@ -8,6 +8,8 @@ namespace KinoPolis.Web.ViewModels.Projections
 {
     public class ByIdViewModel : IMapFrom<Projection>
     {
+        public int Id { get; set; }
+
         public int Price { get; set; }
 
         public DateTime Time { get; set; }
