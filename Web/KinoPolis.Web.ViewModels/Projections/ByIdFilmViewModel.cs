@@ -9,5 +9,7 @@ namespace KinoPolis.Web.ViewModels.Projections
 
         public int Lenght { get; set; }
 
+        public string ImgUrl { get; set; }
+
     }
 }

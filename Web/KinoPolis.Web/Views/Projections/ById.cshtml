@@ -1,0 +1,82 @@
+﻿@model KinoPolis.Web.ViewModels.Projections.ByIdViewModel
+@{
+    ViewData["Title"] = $"{Model.Film.Name} Projection";
+    string minuteZero = "";
+    if (Model.Time.Minute == 0)
+    {
+        minuteZero = "0";
+    }
+    var reservedTickets = Model.Tickets.Where(x => x.IsReserved == true).ToList();
+}
+
+<div class="row">
+    <div class="col-3">
+        <img src=@Model.Film.ImgUrl />
+    </div>
+    <div class="col-6">
+        <p><strong>Name of film: </strong>@Model.Film.Name</p>
+        <p><strong>Lenght: </strong>@Model.Film.Lenght min.</p>
+        <p><strong>Cinema: </strong>@Model.Cinema.Name</p>
+        <p><strong>Date: </strong>@Model.Time.Day/@Model.Time.Month <span>  </span> <strong>Time: </strong>@Model.Time.Hour:@Model.Time.Minute@minuteZero</p>
+        <p><strong>Price: </strong>@Model.Price.00 lv</p>
+        <p><strong>Seats left: </strong>@(Model.Hall.Seats - reservedTickets.Count)</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 mt-5">
+
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <td colspan=@(Model.Hall.SeatsPerRow + 1) class="text-center"><h4>Hall</h4></td>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = Model.Hall.Rows; i >= 1; i--)
+                {
+                    <tr>
+                        <th scope="row">Row: @i</th>
+                        @for (int l = Model.Hall.SeatsPerRow; l >= 1; l--)
+                        {
+                            if (Model.Tickets.FirstOrDefault(x => x.Seat == ((i - 1) * Model.Hall.SeatsPerRow + l)).IsReserved == true)
+                            {
+                                <td class="text-center bg-danger">@((i - 1) * Model.Hall.SeatsPerRow + l)</td>
+                            }
+                            else
+                            {
+                                <td class="text-center">@((i - 1) * Model.Hall.SeatsPerRow + l)</td>
+                            }
+
+                        }
+                    </tr>
+                }
+                <tr>
+                    <th scope="row"></th>
+                    <td colspan=@Model.Hall.SeatsPerRow class="text-center"><h5>Screen</h5></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<form asp-controller="Tickets" asp-action="ById">
+    <div class="form-group">
+        <label asp-for="TicketSeat">Choose a seat:</label>
+        <select asp-for="TicketSeat" class="form-control">
+            @foreach (var ticket in Model.Tickets)
+            {
+                if (!ticket.IsReserved)
+                {
+                    <option>@ticket.Seat</option>
+                }
+            }
+        </select>
+    </div>
+    <input type="hidden" asp-for="Id" value=@Model.Id>
+    <button type="submit" class="btn btn-primary">Reserve Ticket</button>
+</form>
+
+
+

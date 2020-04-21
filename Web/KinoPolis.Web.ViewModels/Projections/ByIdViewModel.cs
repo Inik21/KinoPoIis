@@ -10,6 +10,8 @@ namespace KinoPolis.Web.ViewModels.Projections
     {
         public int Id { get; set; }
 
+        public int TicketSeat { get; set; }
+
         public int Price { get; set; }
 
         public DateTime Time { get; set; }
