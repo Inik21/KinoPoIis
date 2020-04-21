@@ -29,6 +29,7 @@
                               new SettingsSeeder(),
                               new FilmsSeeder(),
                               new CinemasSeeder(),
+                              new ProjectionsSeeder(),
                           };
 
             foreach (var seeder in seeders)
