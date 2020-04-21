@@ -7,7 +7,6 @@ namespace KinoPolis.Data.Models
 {
     public class Projection : BaseDeletableModel<int>
     {
-
         public Projection()
         {
             this.Tickets = new HashSet<Ticket>();
