@@ -13,6 +13,8 @@ namespace KinoPolis.Data.Models
 
         public int Seat { get; set; }
 
+        public bool IsReserved { get; set; }
+
         public int ProjectionId { get; set; }
 
         public virtual Projection Projection { get; set; }
