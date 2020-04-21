@@ -30,6 +30,5 @@ namespace KinoPolis.Services.Data
             var film = this.filmsRepository.All().To<ByNameViewModel>().FirstOrDefault(x => x.Name == realName);
             return film;
         }
-
     }
 }

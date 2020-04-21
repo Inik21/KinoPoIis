@@ -12,11 +12,11 @@
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-            var projections = new List<(int Price, DateTime Time, int FilmId, int CinemaId)>
+            var projections = new List<(int Price, DateTime Time, int FilmId, int CinemaId, int HallId)>()
             {
-                (18, new DateTime(2019, 12, 9, 17, 0, 0), 1, 2),
-                (14, new DateTime(2020, 2, 12, 11, 0, 0), 2, 1),
-                (8, new DateTime(2020, 3, 17, 13, 30, 0), 3, 3),
+                (18, new DateTime(2019, 12, 9, 17, 00, 0), 1, 2, 2),
+                (14, new DateTime(2020, 2, 12, 11, 00, 0), 2, 1, 1),
+                (8, new DateTime(2020, 3, 17, 13, 30, 0), 3, 3, 3),
             };
             if (dbContext.Projections.Any())
             {
@@ -32,6 +32,7 @@
                         Time = projection.Time,
                         FilmId = projection.FilmId,
                         CinemaId = projection.CinemaId,
+                        HallId = projection.HallId,
                     });
                 }
             }

@@ -12,7 +12,7 @@
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-            var cinemas = new List<(string Name, string Address)>
+            var cinemas = new List<(string Name, string Address)>()
             {
                 ("Paradise KinoPolis", @"bulevard ""Cherni vrah"" 100, 1407 Hladilnika, Sofia"),
                 ("Sofia Ring Mall KinoPolis", @"ul. ""Okolovrasten pat"" 214, 1434 Simeonovo - Sever, Sofia"),

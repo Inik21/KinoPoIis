@@ -23,6 +23,7 @@ namespace KinoPolis.Web.ViewModels.Films
 
         public string ImgUrl { get; set; }
 
+
         public IEnumerable<ByNameProjectionsViewModel> Projections { get; set; }
 
     }

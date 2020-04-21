@@ -1,7 +1,41 @@
-﻿
+﻿@model KinoPolis.Web.ViewModels.Films.ByNameViewModel
 @{
-    ViewData["Title"] = "ByName";
+    ViewData["Title"] = Model.Name;
 }
 
-<h1>ByName</h1>
+
+<h1>@Model.Name</h1>
+<div class="row">
+    <div class="border-danger col-3">
+        <img src=@Model.ImgUrl class="m-2">
+    </div>
+    <div class="col-6">
+        <p class="movie_option"><strong>Country: </strong>@Model.Country</p>
+        <p class="movie_option"><strong>Year: </strong>@Model.Year</p>
+        <p class="movie_option"><strong>Category: </strong>@Model.Category</p>
+        <p class="movie_option"><strong>Lenght: </strong>@Model.Lenght Minutes</p>
+        <p class="movie_option"><strong>Description: </strong>@Model.Description</p>
+    </div>
+</div>
+<ul class="list-unstyled m-top">
+    <li class="media border border-danger mt-2">
+
+    </li>
+    @foreach (var projection in Model.Projections.OrderBy(x => x.Time))
+    {
+        string minuteZero = "";
+        if (projection.Time.Minute == 0)
+        {
+            minuteZero = "0";
+        }
+        <li class="media border border-danger mt-2">
+            <div class="media-body">
+                <h3 class="ml-1">@Model.Name</h3>
+                <p class="ml-4 mb-0">@projection.Time.Day/@projection.Time.Month - @projection.Time.Hour:@projection.Time.Minute@minuteZero</p>                
+                <p class="ml-4 mt-0">@projection.Cinema.Name</p>
+                <a href=@projection.URL class="btn btn-outline-dark float-right mb-3 mr-3 mt-0">Reserve Tickets</a>
+            </div>
+        </li>
+    }
+</ul>
 
