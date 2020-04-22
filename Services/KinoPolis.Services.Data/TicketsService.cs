@@ -1,5 +1,6 @@
 ﻿using KinoPolis.Data.Common.Repositories;
 using KinoPolis.Data.Models;
+using KinoPolis.Web.ViewModels.Tickets;
 using System;
 using System.Linq;
 
@@ -18,6 +19,15 @@ namespace KinoPolis.Services.Data
         {
             var ticket = this.ticketRepository.All().FirstOrDefault(x => x.ProjectionId == projectionId && x.Seat == seat);
             return ticket.Id;
+        }
+
+        public ReserveViewModel GetViewModel(int ticketId)
+        {
+            var reserveViewModel = new ReserveViewModel
+            {
+                Id = ticketId,
+            };
+            return reserveViewModel;
         }
     }
 }

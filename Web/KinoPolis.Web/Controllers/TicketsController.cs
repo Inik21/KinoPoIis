@@ -1,4 +1,5 @@
 ﻿using KinoPolis.Services.Data;
+using KinoPolis.Web.ViewModels.Tickets;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,14 @@ namespace KinoPolis.Web.Controllers
         public IActionResult Reserve(int ticketSeat, int id)
         {
             var ticketId = this.ticketsService.GetTicketId(id, ticketSeat);
-            return this.View();
+            var viewModel = this.ticketsService.GetViewModel(ticketId);
+            return this.View(viewModel);
+        }
+
+        public IActionResult PostReserve(ReserveViewModel input)
+        {
+
+            return this.Redirect("/");
         }
     }
 }

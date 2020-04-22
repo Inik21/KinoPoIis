@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using KinoPolis.Web.ViewModels.Tickets;
+using System.Collections.Generic;
 using System.Text;
 
 namespace KinoPolis.Services.Data
@@ -6,5 +7,7 @@ namespace KinoPolis.Services.Data
     public interface ITicketsService
     {
         public int GetTicketId(int projectionId, int seat);
+
+        public ReserveViewModel GetViewModel(int ticketId);
     }
 }
