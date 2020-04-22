@@ -24,9 +24,9 @@ namespace KinoPolis.Web.Controllers
             return this.View(viewModel);
         }
 
-        public IActionResult PostReserve(ReserveViewModel input)
+        public async Task<IActionResult> PostReserve(ReserveViewModel input)
         {
-
+            await this.ticketsService.ReserveTicketAsync(input);
             return this.Redirect("/");
         }
     }
