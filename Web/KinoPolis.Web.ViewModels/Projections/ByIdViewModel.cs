@@ -2,6 +2,7 @@
 using KinoPolis.Services.Mapping;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace KinoPolis.Web.ViewModels.Projections
@@ -10,6 +11,7 @@ namespace KinoPolis.Web.ViewModels.Projections
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "There are no more seats left")]
         public int TicketSeat { get; set; }
 
         public int Price { get; set; }

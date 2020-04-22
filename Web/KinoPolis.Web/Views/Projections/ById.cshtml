@@ -64,7 +64,7 @@
 <form asp-controller="Tickets" asp-action="Reserve">
     <div class="form-group">
         <label asp-for="TicketSeat">Choose a seat:</label>
-        <span asp-validation-for="TicketSeat"></span>
+        
         <select asp-for="TicketSeat" class="form-control">
             @foreach (var ticket in Model.Tickets)
             {
@@ -74,9 +74,10 @@
                 }
             }
         </select>
+        <span class="text-danger" asp-validation-for="TicketSeat"></span>
     </div>
     <input type="hidden" asp-for="Id" value=@Model.Id>
-    <span asp-validation-for="Id"></span>
+    <span  asp-validation-for="Id"></span>
     <button type="submit" class="btn btn-primary">Reserve Ticket</button>
 </form>
 
