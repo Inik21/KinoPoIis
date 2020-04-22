@@ -38,7 +38,10 @@
 
         public IActionResult AZList()
         {
-            return this.View();
+            var viewModel = new AZListViewModel();
+            var orderedFilms = this.filmsService.GetSortedFilms<AZListFilmViewModel>();
+            viewModel.Films = orderedFilms;
+            return this.View(viewModel);
         }
     }
 }

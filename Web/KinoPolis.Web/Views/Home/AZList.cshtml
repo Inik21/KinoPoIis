@@ -3,5 +3,30 @@
     ViewData["Title"] = "A-ZList";
 }
 
-<h1>AZList</h1>
+<h1>A-Z List</h1>
+<p></p>
+<ul class="list-unstyled m-top">
+    @foreach (var film in Model.Films)
+    {
+        <li class="media border border-danger mt-3">
+
+            <img src="@film.ImgUrl" width="150" class="mr-3" alt="">
+            <div class="media-body">
+                <h5 class="mt-0">@film.Name</h5>
+                <p>@film.Category</p>
+                @if (film.Description.Length > 200)
+                {
+                    <span>@film.Description.Substring(0, 200)...</span>
+                }
+                else
+                {
+                    @film.Description
+                }
+                <p></p>
+                <a href="@film.URL" class="btn btn-outline-danger m-2 float-right ">See More</a>
+
+            </div>
+        </li>
+    }
+</ul>
 

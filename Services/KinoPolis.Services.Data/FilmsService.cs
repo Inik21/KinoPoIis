@@ -30,5 +30,11 @@ namespace KinoPolis.Services.Data
             var film = this.filmsRepository.All().To<ByNameViewModel>().FirstOrDefault(x => x.Name == realName);
             return film;
         }
+
+        public IEnumerable<T> GetSortedFilms<T>()
+        {
+            var query = this.filmsRepository.All().OrderBy(x => x.Name).To<T>().ToList();
+            return query;
+        }
     }
 }
