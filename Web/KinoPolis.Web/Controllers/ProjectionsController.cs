@@ -1,6 +1,7 @@
 ﻿namespace KinoPolis.Web.Controllers
 {
     using KinoPolis.Services.Data;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;
@@ -16,6 +17,7 @@
             this.projectionsService = projectionsService;
         }
 
+        [Authorize]
         public IActionResult ById(int id)
         {
             var viewModel = this.projectionsService.GetProjectionById(id);

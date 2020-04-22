@@ -1,5 +1,6 @@
 ﻿using KinoPolis.Services.Data;
 using KinoPolis.Web.ViewModels.Films;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace KinoPolis.Web.Controllers
             this.filmsService = filmsService;
         }
 
+        [Authorize]
         public IActionResult ByName(string name)
         {
             var viewModel = this.filmsService.GetFilmByName(name);

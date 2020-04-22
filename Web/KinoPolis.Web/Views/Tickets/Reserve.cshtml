@@ -7,12 +7,12 @@
         <div class="form-group">
             <label asp-for="FirstNameOfBuyer">First Name</label>
             <input asp-for="FirstNameOfBuyer" class="form-control">
-            <span asp-validation-for="FirstNameOfBuyer"></span>
+            <span class="text-danger" asp-validation-for="FirstNameOfBuyer"></span>
         </div>
         <div class="form-group">
             <label asp-for="SecondNameOfBuyer">Last Name</label>
             <input asp-for="SecondNameOfBuyer" class="form-control">
-            <span asp-validation-for="SecondNameOfBuyer"></span>
+            <span class="text-danger" asp-validation-for="SecondNameOfBuyer"></span>
         </div>
         <input type="hidden" asp-for="Id" value=@Model.Id />
         <button type="submit" class="btn btn-primary">Get my ticket</button>
