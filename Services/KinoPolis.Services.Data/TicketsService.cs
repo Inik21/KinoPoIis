@@ -41,5 +41,6 @@ namespace KinoPolis.Services.Data
             this.ticketsRepository.Update(ticket);
             await this.ticketsRepository.SaveChangesAsync();
         }
+
     }
 }

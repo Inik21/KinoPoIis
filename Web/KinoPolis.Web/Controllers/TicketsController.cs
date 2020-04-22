@@ -27,7 +27,12 @@ namespace KinoPolis.Web.Controllers
         public async Task<IActionResult> PostReserve(ReserveViewModel input)
         {
             await this.ticketsService.ReserveTicketAsync(input);
-            return this.Redirect("/");
+            return this.RedirectToAction("ThankYouForReserving");
+        }
+
+        public IActionResult ThankYouForReserving()
+        {
+            return this.View();
         }
     }
 }
