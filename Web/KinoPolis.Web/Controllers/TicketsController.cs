@@ -8,7 +8,7 @@ namespace KinoPolis.Web.Controllers
 {
     public class TicketsController : BaseController
     {
-        public IActionResult ById(int ticketSeat, int id)
+        public IActionResult Reserve(int ticketSeat, int id)
         {
             return this.View();
         }
