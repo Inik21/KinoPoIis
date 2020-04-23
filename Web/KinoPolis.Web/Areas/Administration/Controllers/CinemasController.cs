@@ -1,4 +1,5 @@
 ﻿using KinoPolis.Common;
+using KinoPolis.Services.Data;
 using KinoPolis.Web.ViewModels.Administration.Cinemas;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,13 @@ namespace KinoPolis.Web.Areas.Administration.Controllers
 {
     public class CinemasController : AdministrationController
     {
+        private readonly ICinemasService cinemasService;
+
+        public CinemasController(ICinemasService cinemasService)
+        {
+            this.cinemasService = cinemasService;
+        }
+
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public IActionResult Create()
         {
@@ -19,14 +27,15 @@ namespace KinoPolis.Web.Areas.Administration.Controllers
 
         [HttpPost]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
-        public IActionResult Create(CreateInputModel input)
+        public async Task<IActionResult> Create(CreateInputModel input)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);
             }
 
-            return this.View();
+            await this.cinemasService.CreateCinemaAsync(input);
+            return this.Redirect("/");
         }
     }
 }
