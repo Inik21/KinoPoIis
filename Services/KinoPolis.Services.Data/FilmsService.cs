@@ -36,6 +36,13 @@ namespace KinoPolis.Services.Data
             await this.filmsRepository.SaveChangesAsync();
         }
 
+        public async Task DeleteFilmAsync(string name)
+        {
+            var film = this.filmsRepository.All().FirstOrDefault(x => x.Name == name);
+            this.filmsRepository.Delete(film);
+            await this.filmsRepository.SaveChangesAsync();
+        }
+
         public IEnumerable<T> GetAllFilms<T>()
         {
             var query = this.filmsRepository.All().To<T>().ToList();
@@ -54,5 +61,7 @@ namespace KinoPolis.Services.Data
             var query = this.filmsRepository.All().OrderBy(x => x.Name).To<T>().ToList();
             return query;
         }
+
+
     }
 }

@@ -39,8 +39,11 @@ namespace KinoPolis.Web.Areas.Administration.Controllers
             return this.Redirect("/");
         }
 
-        public IActionResult Delete(int id)
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public async Task<IActionResult> Delete(string id)
         {
+            var name = id.Replace('-', ' ');
+            await this.filmsService.DeleteFilmAsync(name);
             return this.Redirect("/");
         }
     }

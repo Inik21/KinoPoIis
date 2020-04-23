@@ -1,0 +1,34 @@
+﻿@model KinoPolis.Web.ViewModels.Administration.Projections.CreateImputModel
+@{
+    ViewData["Title"] = "Add Projection";
+}
+
+@if (!(ViewData["ErrorMessage"] == null))
+{
+    <p class="text-danger">@ViewData["ErrorMessage"]</p>
+}
+    <form asp-action="Create" method="post">
+        <div class="form-group">
+            <label asp-for="Price">Price</label>
+            <input asp-for="Price" class="form-control">
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Time">Time</label>
+            <input asp-for="Time" class="form-control">
+            <span asp-validation-for="Time" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CinemaName">Name of the Cinema</label>
+            <input asp-for="CinemaName" class="form-control">
+            <span asp-validation-for="CinemaName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NumberOfHall">Number of hall</label>
+            <input asp-for="NumberOfHall" class="form-control">
+            <span asp-validation-for="NumberOfHall" class="text-danger"></span>
+        </div>
+        <input type="hidden" asp-for="NameOfFilm" value=@Model.NameOfFilm />
+        <button type="submit" class="btn btn-primary">Add projection</button>
+    </form>
+

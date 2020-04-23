@@ -15,5 +15,7 @@ namespace KinoPolis.Services.Data
         IEnumerable<T> GetSortedFilms<T>();
 
         Task CreateFilmAsync(CreateImputModel input);
+
+        Task DeleteFilmAsync(string name);
     }
 }
