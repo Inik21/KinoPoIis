@@ -68,6 +68,7 @@
             services.AddTransient<IProjectionsService, ProjectionsService>();
             services.AddTransient<ITicketsService, TicketsService>();
             services.AddTransient<ICinemasService, CinemasService>();
+            services.AddTransient<IHallsService, HallsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -91,6 +92,7 @@
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseStatusCodePagesWithRedirects("/Home/Error");
                 app.UseHsts();
             }
 

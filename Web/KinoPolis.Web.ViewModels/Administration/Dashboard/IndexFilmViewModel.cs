@@ -10,5 +10,7 @@ namespace KinoPolis.Web.ViewModels.Administration.Dashboard
         public string URLDelete => $"/Administration/Films/Delete/{this.Name.Replace(' ', '-')}";
 
         public string URLAddProjection => $"/Administration/Projections/Create/{this.Name.Replace(' ', '-')}";
+
+        public string URLSeeProjections => $"/Administration/Films/ByName/{this.Name.Replace(' ', '-')}";
     }
 }

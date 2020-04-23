@@ -21,6 +21,14 @@ namespace KinoPolis.Web.Areas.Administration.Controllers
         }
 
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        public IActionResult ByName(string id)
+        {
+            var filmName = id.Replace('-', ' ');
+            var viewModel = this.filmsService.GetFilmByNameAdmin(filmName);
+            return this.View(viewModel);
+        }
+
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public IActionResult Create()
         {
             return this.View();
@@ -44,7 +52,7 @@ namespace KinoPolis.Web.Areas.Administration.Controllers
         {
             var name = id.Replace('-', ' ');
             await this.filmsService.DeleteFilmAsync(name);
-            return this.Redirect("/");
+            return this.Redirect("/Administration/Dashboard/Index");
         }
     }
 }

@@ -19,6 +19,12 @@ namespace KinoPolis.Web.Areas.Administration.Controllers
             this.projectionsService = projectionsService;
         }
 
+        public async Task<IActionResult> Delete(int id)
+        {
+            await this.projectionsService.DeleteProjectionByIdAsync(id);
+            return this.Redirect("/Administration/Dashboard/Index");
+        }
+
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public IActionResult Create(string id)
         {

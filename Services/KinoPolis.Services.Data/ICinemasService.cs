@@ -8,5 +8,7 @@ namespace KinoPolis.Services.Data
     public interface ICinemasService
     {
         Task CreateCinemaAsync(CreateInputModel input);
+
+        bool ValidateCinemaName(string cinemaName);
     }
 }

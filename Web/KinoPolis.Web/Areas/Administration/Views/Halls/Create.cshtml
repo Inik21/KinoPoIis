@@ -1,0 +1,32 @@
+﻿@model KinoPolis.Web.ViewModels.Administration.Halls.CreateInputModel
+@{
+    ViewData["Title"] = "Add hall";
+}
+@if (!(ViewData["ErrorMessage"] == null))
+{
+    <p class="text-danger">@ViewData["ErrorMessage"]</p>
+}
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="CinemaName">Name of the Cinema</label>
+        <input asp-for="CinemaName" class="form-control">
+        <span asp-validation-for="CinemaName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NumberOfHall">Number of hall</label>
+        <input asp-for="NumberOfHall" class="form-control">
+        <span asp-validation-for="NumberOfHall" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Rows">Number of rows</label>
+        <input asp-for="Rows" class="form-control">
+        <span asp-validation-for="Rows" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SeatsPerRow">Number of seats per row</label>
+        <input asp-for="SeatsPerRow" class="form-control">
+        <span asp-validation-for="SeatsPerRow" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add hall</button>
+</form>
+

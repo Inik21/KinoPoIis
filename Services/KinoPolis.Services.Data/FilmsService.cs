@@ -49,10 +49,17 @@ namespace KinoPolis.Services.Data
             return query;
         }
 
-        public ByNameViewModel GetFilmByName(string name)
+        public Web.ViewModels.Films.ByNameViewModel GetFilmByName(string name)
         {
             var realName = name.Replace('-', ' ');
-            var film = this.filmsRepository.All().To<ByNameViewModel>().FirstOrDefault(x => x.Name == realName);
+            var film = this.filmsRepository.All().To<Web.ViewModels.Films.ByNameViewModel>().FirstOrDefault(x => x.Name == realName);
+            return film;
+        }
+
+        public Web.ViewModels.Administration.Films.ByNameViewModel GetFilmByNameAdmin(string name)
+        {
+            var realName = name.Replace('-', ' ');
+            var film = this.filmsRepository.All().To<Web.ViewModels.Administration.Films.ByNameViewModel>().FirstOrDefault(x => x.Name == realName);
             return film;
         }
 

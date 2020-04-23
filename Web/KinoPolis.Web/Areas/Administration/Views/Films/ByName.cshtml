@@ -1,0 +1,21 @@
+﻿@model KinoPolis.Web.ViewModels.Administration.Films.ByNameViewModel
+@{
+    ViewData["Title"] = Model.Name + " - Projections";
+}
+
+    <h1>@ViewData["Title"]</h1>
+
+    <ul class="list-unstyled m-top">
+        <li class="media border border-dark mt-2">
+
+        </li>
+        @foreach (var projection in Model.Projections)
+        {
+            <li class=" border border-danger mt-3">
+                <div class="border-danger">
+                    <p>@projection.Time <a href=@projection.URLDelete class="btn btn-outline-dark float-right ml-2 mr-3">Delete</a></p>
+                </div>
+            </li>
+        }
+    </ul>
+

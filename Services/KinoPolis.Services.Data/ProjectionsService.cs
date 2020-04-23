@@ -58,6 +58,13 @@ namespace KinoPolis.Services.Data
             await this.projectionsRepository.SaveChangesAsync();
         }
 
+        public async Task DeleteProjectionByIdAsync(int id)
+        {
+            var projection = this.projectionsRepository.All().FirstOrDefault(x => x.Id == id);
+            this.projectionsRepository.Delete(projection);
+            await this.projectionsRepository.SaveChangesAsync();
+        }
+
         public ByIdViewModel GetProjectionById(int id)
         {
             var byIdViewModel = this.projectionsRepository.All().To<ByIdViewModel>().FirstOrDefault(x => x.Id == id);

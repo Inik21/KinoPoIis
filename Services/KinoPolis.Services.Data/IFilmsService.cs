@@ -10,7 +10,9 @@ namespace KinoPolis.Services.Data
     {
         IEnumerable<T> GetAllFilms<T>();
 
-        ByNameViewModel GetFilmByName(string name);
+        Web.ViewModels.Films.ByNameViewModel GetFilmByName(string name);
+
+        Web.ViewModels.Administration.Films.ByNameViewModel GetFilmByNameAdmin(string name);
 
         IEnumerable<T> GetSortedFilms<T>();
 

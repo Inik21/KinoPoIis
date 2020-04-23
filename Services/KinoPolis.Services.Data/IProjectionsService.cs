@@ -15,5 +15,7 @@ namespace KinoPolis.Services.Data
         bool ValidateHallInCinema(string cinemaName, int numberOfHall);
 
         Task CreateProjectionAsync(CreateImputModel input);
+
+        Task DeleteProjectionByIdAsync(int id);
     }
 }

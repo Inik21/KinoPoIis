@@ -2,6 +2,7 @@
 using KinoPolis.Data.Models;
 using KinoPolis.Web.ViewModels.Administration.Cinemas;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace KinoPolis.Services.Data
@@ -24,6 +25,11 @@ namespace KinoPolis.Services.Data
             };
             await this.cinemasRepository.AddAsync(cinema);
             await this.cinemasRepository.SaveChangesAsync();
+        }
+
+        public bool ValidateCinemaName(string cinemaName)
+        {
+            return this.cinemasRepository.All().Any(x => x.Name == cinemaName);
         }
     }
 }
