@@ -1,4 +1,5 @@
 ﻿using KinoPolis.Common;
+using KinoPolis.Web.ViewModels.Administration.Cinemas;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -18,8 +19,13 @@ namespace KinoPolis.Web.Areas.Administration.Controllers
 
         [HttpPost]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
-        public IActionResult Create()
+        public IActionResult Create(CreateInputModel input)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
             return this.View();
         }
     }
