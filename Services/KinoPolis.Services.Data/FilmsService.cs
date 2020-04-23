@@ -1,11 +1,13 @@
 ﻿using KinoPolis.Data.Common.Repositories;
 using KinoPolis.Data.Models;
 using KinoPolis.Services.Mapping;
+using KinoPolis.Web.ViewModels.Administration.Films;
 using KinoPolis.Web.ViewModels.Films;
 using KinoPolis.Web.ViewModels.Home;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace KinoPolis.Services.Data
 {
@@ -16,6 +18,22 @@ namespace KinoPolis.Services.Data
         public FilmsService(IDeletableEntityRepository<Film> filmsRepository)
         {
             this.filmsRepository = filmsRepository;
+        }
+
+        public async Task CreateFilmAsync(CreateImputModel input)
+        {
+            var film = new Film()
+            {
+                Name = input.Name,
+                Category = input.Category,
+                Country = input.Country,
+                Year = input.Year,
+                Lenght = input.Lenght,
+                Description = input.Description,
+                ImgUrl = input.ImgUrl,
+            };
+            await this.filmsRepository.AddAsync(film);
+            await this.filmsRepository.SaveChangesAsync();
         }
 
         public IEnumerable<T> GetAllFilms<T>()
