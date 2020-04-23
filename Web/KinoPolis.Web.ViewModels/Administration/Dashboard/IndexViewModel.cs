@@ -1,7 +1,10 @@
-﻿namespace KinoPolis.Web.ViewModels.Administration.Dashboard
+﻿using System.Collections;
+using System.Collections.Generic;
+
+namespace KinoPolis.Web.ViewModels.Administration.Dashboard
 {
     public class IndexViewModel
     {
-        public int SettingsCount { get; set; }
+        public IEnumerable<IndexFilmViewModel> Films { get; set; }
     }
 }

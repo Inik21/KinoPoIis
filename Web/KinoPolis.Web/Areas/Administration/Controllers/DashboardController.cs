@@ -7,16 +7,18 @@
 
     public class DashboardController : AdministrationController
     {
-        private readonly ISettingsService settingsService;
+        private readonly IFilmsService filmsService;
 
-        public DashboardController(ISettingsService settingsService)
+        public DashboardController(IFilmsService filmsService)
         {
-            this.settingsService = settingsService;
+            this.filmsService = filmsService;
         }
 
         public IActionResult Index()
         {
-            var viewModel = new IndexViewModel { SettingsCount = this.settingsService.GetCount(), };
+            var viewModel = new IndexViewModel();
+            var films = this.filmsService.GetAllFilms<IndexFilmViewModel>();
+            viewModel.Films = films;
             return this.View(viewModel);
         }
     }

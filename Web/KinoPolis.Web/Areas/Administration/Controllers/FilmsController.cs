@@ -38,5 +38,10 @@ namespace KinoPolis.Web.Areas.Administration.Controllers
             await this.filmsService.CreateFilmAsync(input);
             return this.Redirect("/");
         }
+
+        public IActionResult Delete(int id)
+        {
+            return this.Redirect("/");
+        }
     }
 }
