@@ -1,14 +1,15 @@
-﻿using KinoPolis.Services.Data;
-using KinoPolis.Web.ViewModels.Films;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace KinoPolis.Web.Controllers
+﻿namespace KinoPolis.Web.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using KinoPolis.Services.Data;
+    using KinoPolis.Web.ViewModels.Films;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+
     public class FilmsController : BaseController
     {
         private readonly IFilmsService filmsService;

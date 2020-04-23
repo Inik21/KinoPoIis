@@ -1,14 +1,15 @@
-﻿using KinoPolis.Services.Data;
-using KinoPolis.Web.ViewModels.Tickets;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace KinoPolis.Web.Controllers
+﻿namespace KinoPolis.Web.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using KinoPolis.Services.Data;
+    using KinoPolis.Web.ViewModels.Tickets;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+
     public class TicketsController : BaseController
     {
         private readonly ITicketsService ticketsService;
@@ -38,7 +39,6 @@ namespace KinoPolis.Web.Controllers
                 await this.ticketsService.ReserveTicketAsync(input);
                 return this.RedirectToAction("ThankYouForReserving");
             }
-
         }
 
         [Authorize]

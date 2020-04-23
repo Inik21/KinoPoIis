@@ -1,10 +1,11 @@
-﻿using KinoPolis.Data.Common.Models;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
-namespace KinoPolis.Data.Models
+﻿namespace KinoPolis.Data.Models
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+
+    using KinoPolis.Data.Common.Models;
+
     public class Projection : BaseDeletableModel<int>
     {
         public Projection()
@@ -29,6 +30,5 @@ namespace KinoPolis.Data.Models
         public virtual Hall Hall { get; set; }
 
         public virtual ICollection<Ticket> Tickets { get; set; }
-
     }
 }

@@ -1,11 +1,12 @@
-﻿using KinoPolis.Web.ViewModels.Administration.Projections;
-using KinoPolis.Web.ViewModels.Projections;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KinoPolis.Services.Data
+﻿namespace KinoPolis.Services.Data
 {
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using KinoPolis.Web.ViewModels.Administration.Projections;
+    using KinoPolis.Web.ViewModels.Projections;
+
     public interface IProjectionsService
     {
         ByIdViewModel GetProjectionById(int id);

@@ -1,13 +1,13 @@
-﻿using KinoPolis.Data.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace KinoPolis.Data.Models
+﻿namespace KinoPolis.Data.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    using KinoPolis.Data.Common.Models;
+
     public class Film : BaseDeletableModel<int>
     {
-
         public Film()
         {
             this.Projections = new HashSet<Projection>();

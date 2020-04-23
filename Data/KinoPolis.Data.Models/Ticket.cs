@@ -1,8 +1,9 @@
-﻿using KinoPolis.Data.Common.Models;
-using System.Collections.Generic;
-
-namespace KinoPolis.Data.Models
+﻿namespace KinoPolis.Data.Models
 {
+    using System.Collections.Generic;
+
+    using KinoPolis.Data.Common.Models;
+
     public class Ticket : BaseDeletableModel<int>
     {
         public string FirstNameOfBuyer { get; set; }
@@ -18,6 +19,5 @@ namespace KinoPolis.Data.Models
         public int ProjectionId { get; set; }
 
         public virtual Projection Projection { get; set; }
-
     }
 }

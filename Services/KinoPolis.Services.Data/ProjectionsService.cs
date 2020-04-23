@@ -1,15 +1,16 @@
-﻿using KinoPolis.Data.Common.Repositories;
-using KinoPolis.Data.Models;
-using KinoPolis.Services.Mapping;
-using KinoPolis.Web.ViewModels.Administration.Projections;
-using KinoPolis.Web.ViewModels.Projections;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace KinoPolis.Services.Data
+﻿namespace KinoPolis.Services.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using KinoPolis.Data.Common.Repositories;
+    using KinoPolis.Data.Models;
+    using KinoPolis.Services.Mapping;
+    using KinoPolis.Web.ViewModels.Administration.Projections;
+    using KinoPolis.Web.ViewModels.Projections;
+
     public class ProjectionsService : IProjectionsService
     {
         private readonly IDeletableEntityRepository<Projection> projectionsRepository;
